@@ -1,0 +1,31 @@
+@namespace PortfolioWebsiteProject.Components.Reusable
+@using Microsoft.AspNetCore.Components
+@using PortfolioWebsiteProject.Models
+
+@* Reusable project view: accepts a `Project` object and renders image, text and a right-aligned button *@
+<div class="project-view">
+    <img src="@Project?.ImageSrc" alt="@Project?.Title" class="pv-image" />
+
+    <div class="pv-body">
+        <h3 class="pv-title">@Project?.Title</h3>
+        <p class="pv-description">@Project?.Description</p>
+        @if (Project?.Techs?.Any() == true)
+        {
+            <br />
+            <h4 class="pv-description">Technologies Used:</h4>
+            <p class="pv-description">@string.Join(", ", Project.Techs)</p>
+        }
+    </div>
+
+    <div class="pv-cta">
+        @if (!string.IsNullOrEmpty(Project?.ButtonUrl))
+        {
+            <a class="pv-button" href="@Project.ButtonUrl" target="_blank" rel="noopener noreferrer">@Project.ButtonText</a>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Project? Project { get; set; }
+}

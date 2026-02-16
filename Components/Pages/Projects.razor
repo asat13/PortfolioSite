@@ -1,0 +1,64 @@
+﻿@page "/projects"
+@attribute [StreamRendering]
+
+@using PortfolioWebsiteProject.Models
+
+<PageTitle>Projects</PageTitle>
+
+<h1>Projects</h1>
+
+<p>This component demonstrates showing data.</p>
+
+
+@if (projects == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    var filtered = GetFilteredProjects();
+    if (!filtered.Any())
+    {
+        <p><em>No projects match the current filters .</em></p>
+    }
+    else
+    {
+        @foreach (var project in filtered)
+        {
+            <ProjectView Project="project" />
+        }
+    }
+}
+
+@code {
+    private Project[]? projects = new[] {
+        new Project
+        {
+            Title = "Space Shooter",
+            Description = "A Unity-based 2D shooter.",
+            ImageSrc = "images/error.svg",
+            ButtonText = "Play",
+            ButtonUrl = "https://example.com/space-shooter",
+            Techs = new[] { "Unity", "C#" },
+            Type = "Game"
+        },
+        new Project
+        {
+            Title = "Portfolio Site",
+            Description = "This website built with Blazor.",
+            ImageSrc = "images/error.svg",
+            ButtonText = "Source",
+            ButtonUrl = "https://example.com/portfolio",
+            Techs = new[] { ".NET", "Blazor", "C#" },
+            Type = "Web"
+        }
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+    }
+
+
+}
