@@ -1,7 +1,8 @@
 ﻿@page "/projects"
 @attribute [StreamRendering]
-
+@rendermode InteractiveServer
 @using PortfolioWebsiteProject.Models
+@using System.Linq
 
 <PageTitle>Projects</PageTitle>
 
@@ -10,16 +11,45 @@
 <p>This component demonstrates showing data.</p>
 
 
+<div class="filters">
+    <label>Filter by name:</label>
+    <input placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
+
+    <label>Technologies (multi-select):</label>
+    <div class="checkbox-list">
+        @foreach (var tech in AllTechs)
+        {
+            <label>
+                <input type="checkbox" checked="@selectedTechs.Contains(tech)" @onchange="e => HandleTechChange(tech, (bool)e.Value)" />
+                @tech
+            </label>
+        }
+    </div>
+
+    <label>Type (multi-select):</label>
+    <div class="checkbox-list">
+        @foreach (var t in AllTypes)
+        {
+            <label>
+                <input type="checkbox" checked="@selectedTypes.Contains(t)" @onchange="e => HandleTypeChange(t, (bool)e.Value)" />
+                @t
+            </label>
+        }
+    </div>
+
+    <button class="btn btn-secondary" @onclick="ClearFilters">Clear</button>
+</div>
+
 @if (projects == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    var filtered = GetFilteredProjects();
-    if (!filtered.Any())
+    var filtered = FilteredProjects().ToArray();
+    if (filtered.Length == 0)
     {
-        <p><em>No projects match the current filters .</em></p>
+        <p><em>No projects match the current filters.</em></p>
     }
     else
     {
@@ -54,11 +84,64 @@ else
         }
     };
 
-    protected override async Task OnInitializedAsync()
+    private string nameFilter = string.Empty;
+    private HashSet<string> selectedTechs = new();
+    private HashSet<string> selectedTypes = new();
+
+    private IEnumerable<string> AllTechs => projects?.SelectMany(p => p.Techs ?? Array.Empty<string>()).Distinct().OrderBy(x => x) ?? Enumerable.Empty<string>();
+    private IEnumerable<string> AllTypes => projects?.Select(p => p.Type).Where(x => !string.IsNullOrEmpty(x)).Distinct().OrderBy(x => x) ?? Enumerable.Empty<string>();
+
+    private IEnumerable<Project> FilteredProjects()
     {
-        // Simulate asynchronous loading to demonstrate streaming rendering
-        await Task.Delay(500);
+        if (projects == null) yield break;
+
+        foreach (var p in projects)
+        {
+            if (!string.IsNullOrWhiteSpace(nameFilter))
+            {
+                if (!p.Title.Contains(nameFilter, StringComparison.OrdinalIgnoreCase))
+                    continue;
+            }
+
+            if (selectedTechs.Count > 0)
+            {
+                var techs = p.Techs ?? Array.Empty<string>();
+                if (!techs.Any(t => selectedTechs.Contains(t)))
+                    continue;
+            }
+
+            if (selectedTypes.Count > 0)
+            {
+                if (!selectedTypes.Contains(p.Type))
+                    continue;
+            }
+
+            yield return p;
+        }
     }
 
+    private void ClearFilters()
+    {
+        nameFilter = string.Empty;
+        selectedTechs.Clear();
+        selectedTypes.Clear();
+    }
+
+    private void HandleTechChange(string tech, bool isChecked)
+    {
+        if (isChecked) selectedTechs.Add(tech); else selectedTechs.Remove(tech);
+        StateHasChanged();
+    }
+
+    private void HandleTypeChange(string t, bool isChecked)
+    {
+        if (isChecked) selectedTypes.Add(t); else selectedTypes.Remove(t);
+        StateHasChanged();
+    }
+
+    private void OnNameInput(ChangeEventArgs e)
+    {
+        nameFilter = e.Value?.ToString() ?? string.Empty;
+    }
 
 }
