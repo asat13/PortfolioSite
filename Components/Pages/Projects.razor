@@ -3,12 +3,12 @@
 @rendermode InteractiveServer
 @using PortfolioWebsiteProject.Models
 @using System.Linq
+@using System.Text.Json
+@using System.IO
 
 <PageTitle>Projects</PageTitle>
 
 <h1>Projects</h1>
-
-<p>This component demonstrates showing data.</p>
 
 
 <div class="filters">
@@ -42,7 +42,7 @@
 
 @if (projects == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Loading....</em></p>
 }
 else
 {
@@ -61,28 +61,32 @@ else
 }
 
 @code {
-    private Project[]? projects = new[] {
-        new Project
+    private Project[]? projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
         {
-            Title = "Space Shooter",
-            Description = "A Unity-based 2D shooter.",
-            ImageSrc = "images/error.svg",
-            ButtonText = "Play",
-            ButtonUrl = "https://example.com/space-shooter",
-            Techs = new[] { "Unity", "C#" },
-            Type = "Game"
-        },
-        new Project
-        {
-            Title = "Portfolio Site",
-            Description = "This website built with Blazor.",
-            ImageSrc = "images/error.svg",
-            ButtonText = "Source",
-            ButtonUrl = "https://example.com/portfolio",
-            Techs = new[] { ".NET", "Blazor", "C#" },
-            Type = "Web"
+            // Read projects from JSON file
+            string filePath = Path.Combine(AppContext.BaseDirectory, "Data", "projects.json");
+            if (File.Exists(filePath))
+            {
+                string json = await File.ReadAllTextAsync(filePath);
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                projects = JsonSerializer.Deserialize<Project[]>(json, options);
+            }
+            else
+            {
+                // Fallback to empty array if file not found
+                projects = Array.Empty<Project>();
+            }
         }
-    };
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading projects: {ex.Message}");
+            projects = Array.Empty<Project>();
+        }
+    }
 
     private string nameFilter = string.Empty;
     private HashSet<string> selectedTechs = new();
