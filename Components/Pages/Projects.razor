@@ -19,7 +19,7 @@
     <div class="checkbox-list">
         @foreach (var tech in AllTechs)
         {
-            <label>
+            <label style="margin-right: 1%;">
                 <input type="checkbox" checked="@selectedTechs.Contains(tech)" @onchange="e => HandleTechChange(tech, (bool)e.Value)" />
                 @tech
             </label>
@@ -30,7 +30,7 @@
     <div class="checkbox-list">
         @foreach (var t in AllTypes)
         {
-            <label>
+            <label style="margin-right: 1%;">
                 <input type="checkbox" checked="@selectedTypes.Contains(t)" @onchange="e => HandleTypeChange(t, (bool)e.Value)" />
                 @t
             </label>
@@ -110,7 +110,7 @@ else
             if (selectedTechs.Count > 0)
             {
                 var techs = p.Techs ?? Array.Empty<string>();
-                if (!techs.Any(t => selectedTechs.Contains(t)))
+                if (techs.Where(t => selectedTechs.Contains(t)).Count() < selectedTechs.Count)
                     continue;
             }
 
