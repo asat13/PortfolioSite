@@ -12,32 +12,38 @@
 
 
 <div class="filters">
-    <label>Filter by name:</label>
-    <input placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
-
-    <label>Technologies (multi-select):</label>
-    <div class="checkbox-list">
-        @foreach (var tech in AllTechs)
-        {
-            <label style="margin-right: 1%;">
-                <input type="checkbox" checked="@selectedTechs.Contains(tech)" @onchange="e => HandleTechChange(tech, (bool)e.Value)" />
-                @tech
-            </label>
-        }
+    <div class="filter-group">
+        <label class="filter-label">Search</label>
+        <input class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
     </div>
 
-    <label>Type (multi-select):</label>
-    <div class="checkbox-list">
-        @foreach (var t in AllTypes)
-        {
-            <label style="margin-right: 1%;">
-                <input type="checkbox" checked="@selectedTypes.Contains(t)" @onchange="e => HandleTypeChange(t, (bool)e.Value)" />
-                @t
-            </label>
-        }
+    <div class="filter-group">
+        <label class="filter-label">Technologies</label>
+        <div class="pill-list">
+            @foreach (var tech in AllTechs)
+            {
+                <button class="pill @(selectedTechs.Contains(tech) ? "pill--active" : "")"
+                        @onclick="() => ToggleTech(tech)">
+                    @tech
+                </button>
+            }
+        </div>
     </div>
 
-    <button class="btn btn-secondary" @onclick="ClearFilters">Clear</button>
+    <div class="filter-group">
+        <label class="filter-label">Type</label>
+        <div class="pill-list">
+            @foreach (var t in AllTypes)
+            {
+                <button class="pill @(selectedTypes.Contains(t) ? "pill--active" : "")"
+                        @onclick="() => ToggleType(t)">
+                    @t
+                </button>
+            }
+        </div>
+    </div>
+
+    <button class="btn-clear" @onclick="ClearFilters">Clear filters</button>
 </div>
 
 @if (projects == null)
@@ -54,8 +60,9 @@ else
     else
     {
         @foreach (var project in filtered)
-        {
+        {   <div class="project-container">
             <ProjectView Project="project" />
+            </div>
         }
     }
 }
@@ -131,15 +138,15 @@ else
         selectedTypes.Clear();
     }
 
-    private void HandleTechChange(string tech, bool isChecked)
+    private void ToggleTech(string tech)
     {
-        if (isChecked) selectedTechs.Add(tech); else selectedTechs.Remove(tech);
+        if (!selectedTechs.Remove(tech)) selectedTechs.Add(tech);
         StateHasChanged();
     }
 
-    private void HandleTypeChange(string t, bool isChecked)
+    private void ToggleType(string t)
     {
-        if (isChecked) selectedTypes.Add(t); else selectedTypes.Remove(t);
+        if (!selectedTypes.Remove(t)) selectedTypes.Add(t);
         StateHasChanged();
     }
 
