@@ -1,4 +1,4 @@
-﻿@page "/projects"
+@page "/projects"
 @attribute [StreamRendering]
 @rendermode InteractiveServer
 @using PortfolioWebsiteProject.Models
@@ -6,66 +6,73 @@
 @using System.Text.Json
 @using System.IO
 
-<PageTitle>Projects</PageTitle>
+<PageTitle>Projects — Andre Maestas</PageTitle>
 
-<h1>Projects</h1>
-
-
-<div class="filters">
-    <div class="filter-group">
-        <label class="filter-label">Search</label>
-        <input class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
-    </div>
-
-    <div class="filter-group">
-        <label class="filter-label">Technologies</label>
-        <div class="pill-list">
-            @foreach (var tech in AllTechs)
-            {
-                <button class="pill @(selectedTechs.Contains(tech) ? "pill--active" : "")"
-                        @onclick="() => ToggleTech(tech)">
-                    @tech
-                </button>
-            }
+<div class="projects-page">
+    <div class="section-container">
+        <div class="projects-header">
+            <h1 class="section-heading">My Work</h1>
+            <p class="projects-intro">A collection of games, apps, and web projects I've built across game development, desktop, and web platforms.</p>
         </div>
-    </div>
 
-    <div class="filter-group">
-        <label class="filter-label">Type</label>
-        <div class="pill-list">
-            @foreach (var t in AllTypes)
-            {
-                <button class="pill @(selectedTypes.Contains(t) ? "pill--active" : "")"
-                        @onclick="() => ToggleType(t)">
-                    @t
-                </button>
-            }
-        </div>
-    </div>
-
-    <button class="btn-clear" @onclick="ClearFilters">Clear filters</button>
-</div>
-
-@if (projects == null)
-{
-    <p><em>Loading....</em></p>
-}
-else
-{
-    var filtered = FilteredProjects().ToArray();
-    if (filtered.Length == 0)
-    {
-        <p><em>No projects match the current filters.</em></p>
-    }
-    else
-    {
-        @foreach (var project in filtered)
-        {   <div class="project-container">
-            <ProjectView Project="project" />
+        <div class="filters">
+            <div class="filter-group">
+                <label class="filter-label">Search</label>
+                <input class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
             </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Technologies</label>
+                <div class="pill-list">
+                    @foreach (var tech in AllTechs)
+                    {
+                        <button class="pill @(selectedTechs.Contains(tech) ? "pill--active" : "")"
+                                @onclick="() => ToggleTech(tech)">
+                            @tech
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Type</label>
+                <div class="pill-list">
+                    @foreach (var t in AllTypes)
+                    {
+                        <button class="pill @(selectedTypes.Contains(t) ? "pill--active" : "")"
+                                @onclick="() => ToggleType(t)">
+                            @t
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <button class="btn-clear" @onclick="ClearFilters">Clear filters</button>
+        </div>
+
+        @if (projects == null)
+        {
+            <p class="projects-empty"><em>Loading...</em></p>
         }
-    }
-}
+        else
+        {
+            var filtered = FilteredProjects().ToArray();
+            if (filtered.Length == 0)
+            {
+                <p class="projects-empty"><em>No projects match the current filters.</em></p>
+            }
+            else
+            {
+                <div class="project-grid">
+                    @foreach (var project in filtered)
+                    {
+                        <ProjectView Project="project" />
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
 
 @code {
     private Project[]? projects;
@@ -74,7 +81,6 @@ else
     {
         try
         {
-            // Read projects from JSON file
             string filePath = Path.Combine(AppContext.BaseDirectory, "Data", "projects.json");
             if (File.Exists(filePath))
             {
@@ -84,7 +90,6 @@ else
             }
             else
             {
-                // Fallback to empty array if file not found
                 projects = Array.Empty<Project>();
             }
         }
@@ -154,5 +159,4 @@ else
     {
         nameFilter = e.Value?.ToString() ?? string.Empty;
     }
-
 }

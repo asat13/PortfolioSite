@@ -1,25 +1,65 @@
-﻿@page "/"
+@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Andre Maestas — Portfolio</PageTitle>
 
-<div class="home-hero">
-<h1 style="text-align:center;font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;">Portfolio of Andre Maestas</h1>
-<img src="images/Home/me.webp" alt="Profile Picture" class="profile-image" />
-<br/><br/>
-<p>Andre is a software developer specializing in Game and App Development utilizing technologies such as Unity, Unreal, .Net, and C#.
-<br/><br/>
-She has a BA in Digital Culture as well as a Certificate in Computer Gaming from Arizona State University.
-<br/><br/>
-Andre has a passion for games and new technology, and is always looking for new ways to learn and grow as a developer. She is always open to opportunities in the tech industry, and is excited to see where her career will take her next!
-</p>
-</div>
+<!-- Hero Section -->
+<section class="hero" id="home" aria-label="Introduction">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+        <div class="profile-wrapper">
+            <img class="profile-img" src="images/Home/me.webp" alt="Profile photo of Andre Maestas" />
+        </div>
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">ANDRE MAESTAS</h1>
+        <p class="hero-title">I'm a software developer.</p>
+        <p class="hero-intro">
+            Specializing in Game and App Development with Unity, Unreal, .NET, and C#.
+            BA in Digital Culture and Certificate in Computer Gaming from Arizona State University.
+        </p>
+        <div class="hero-cta">
+            <a class="btn-primary-cta" href="/projects">View Projects</a>
+        </div>
+        <div class="hero-social" aria-label="Social links">
+            <a class="social-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="images/Home/github.svg" alt="GitHub" class="social-icon" />
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="images/Home/linkedin.svg" alt="LinkedIn" class="social-icon" />
+            </a>
+        </div>
+    </div>
+</section>
 
-<div class="home-social" aria-label="Social links">
-	<a class="social-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-		<img src="images/Home/github.svg" alt="GitHub" class="social-icon" />
-	</a>
-	<a class="social-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-		<img src="images/Home/linkedin.svg" alt="LinkedIn" class="social-icon" />
-	</a>
-</div>
-
+<!-- About Section -->
+<section class="about-section" id="about" aria-labelledby="about-heading">
+    <div class="section-container">
+        <h2 id="about-heading" class="section-heading">About Me</h2>
+        <div class="about-grid">
+            <div class="about-left">
+                <p class="about-text">
+                    Andre is a software developer with expertise in game and application development using Unity, Unreal Engine, .NET, and C#. 
+                </p>
+                <p class="about-text">
+                    She holds a BA in Digital Culture and a Certificate in Computer Gaming from Arizona State University.
+                </p>
+                <p class="about-text">
+                    Driven by a strong passion for games and emerging technologies, Andre continually pursues opportunities to expand her technical skills and deliver engaging, high-quality interactive experiences. 
+                    She is actively open to new roles in the tech industry and looks forward to contributing to innovative projects that advance her growth as a developer.
+                </p>
+            </div>
+            <div class="about-right">
+                <h3 class="skills-heading">Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-chip">C#</span>
+                    <span class="skill-chip">Unity</span>
+                    <span class="skill-chip">Unreal Engine</span>
+                    <span class="skill-chip">.NET / Blazor</span>
+                    <span class="skill-chip">HTML &amp; CSS</span>
+                    <span class="skill-chip">JavaScript</span>
+                    <span class="skill-chip">Game Development</span>
+                    <span class="skill-chip">UI/UX Design</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

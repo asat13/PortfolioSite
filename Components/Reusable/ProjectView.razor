@@ -2,27 +2,34 @@
 @using Microsoft.AspNetCore.Components
 @using PortfolioWebsiteProject.Models
 
-@* Reusable project view: accepts a `Project` object and renders image, text and a right-aligned button *@
-<div class="project-view">
-    <img src="@Project?.ImageSrc" alt="@Project?.Title" class="pv-image" />
+<div class="project-card">
+    <img src="@Project?.ImageSrc" alt="@Project?.Title" class="pv-image" loading="lazy" />
+
+    <div class="pv-label-bar">
+        <h3 class="pv-title">@Project?.Title</h3>
+    </div>
 
     <div class="pv-body">
-        <h3 class="pv-title">@Project?.Title</h3>
         <p class="pv-description">@Project?.Description</p>
         @if (Project?.Techs?.Any() == true)
         {
-            <br />
-            <h4 class="pv-description">Technologies Used:</h4>
-            <p class="pv-description">@string.Join(", ", Project.Techs)</p>
+            <div class="pv-techs">
+                @foreach (var tech in Project.Techs)
+                {
+                    <span class="pv-tech-badge">@tech</span>
+                }
+            </div>
         }
     </div>
 
-    <div class="pv-cta">
-        @if (!string.IsNullOrEmpty(Project?.URL))
-        {
-            <a class="pv-button" href="@Project.URL" target="_blank" rel="noopener noreferrer">More</a>
-        }
-    </div>
+    @if (!string.IsNullOrEmpty(Project?.URL))
+    {
+        <div class="pv-cta">
+            <a class="pv-button" href="@Project.URL" target="_blank" rel="noopener noreferrer">
+                View Project
+            </a>
+        </div>
+    }
 </div>
 
 @code {

@@ -1,25 +1,27 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 
-<div class="page">
-    
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <main>
-        <div class="top-row">
-            <div class="navigation-top">
-                <div class="banner-top">
-                    <img src="images/Nav/home_banner.svg" alt="Banner Image" class="banner-image" />
-                </div>
-                <NavMenu />
-            </div>
+<header class="site-header" role="banner">
+    <div class="header-inner">
+        <a class="logo" href="/">Andre Maestas</a>
+        <NavMenu />
+    </div>
+</header>
+
+<main class="site-main" id="main-content">
+    @Body
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <span class="footer-copy">© Andre Maestas 2026</span>
+        <div class="footer-links">
+            <a class="footer-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="footer-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-        
-        
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+    </div>
+</footer>
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
