@@ -15,39 +15,55 @@
             <p class="projects-intro">A collection of games, apps, and web projects I've built across game development, desktop, and web platforms.</p>
         </div>
 
-        <div class="filters">
-            <div class="filter-group">
-                <label class="filter-label">Search</label>
-                <input class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
-            </div>
-
-            <div class="filter-group">
-                <label class="filter-label">Technologies</label>
-                <div class="pill-list">
-                    @foreach (var tech in AllTechs)
+        <div class="filters-wrapper">
+            <button class="filters-toggle" @onclick="ToggleFilters" aria-expanded="@filtersOpen" aria-controls="filters-body">
+                <span class="filters-toggle-label">
+                    Filters
+                    @if (ActiveFilterCount > 0)
                     {
-                        <button class="pill @(selectedTechs.Contains(tech) ? "pill--active" : "")"
-                                @onclick="() => ToggleTech(tech)">
-                            @tech
-                        </button>
+                        <span class="filters-badge">@ActiveFilterCount</span>
                     }
-                </div>
-            </div>
+                </span>
+                <span class="filters-chevron @(filtersOpen ? "filters-chevron--open" : "")"></span>
+            </button>
 
-            <div class="filter-group">
-                <label class="filter-label">Type</label>
-                <div class="pill-list">
-                    @foreach (var t in AllTypes)
-                    {
-                        <button class="pill @(selectedTypes.Contains(t) ? "pill--active" : "")"
-                                @onclick="() => ToggleType(t)">
-                            @t
-                        </button>
-                    }
-                </div>
-            </div>
+            @if (filtersOpen)
+            {
+                <div class="filters" id="filters-body">
+                    <div class="filter-group">
+                        <label class="filter-label">Search</label>
+                        <input class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
+                    </div>
 
-            <button class="btn-clear" @onclick="ClearFilters">Clear filters</button>
+                    <div class="filter-group">
+                        <label class="filter-label">Technologies</label>
+                        <div class="pill-list">
+                            @foreach (var tech in AllTechs)
+                            {
+                                <button class="pill @(selectedTechs.Contains(tech) ? "pill--active" : "")"
+                                        @onclick="() => ToggleTech(tech)">
+                                    @tech
+                                </button>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Type</label>
+                        <div class="pill-list">
+                            @foreach (var t in AllTypes)
+                            {
+                                <button class="pill @(selectedTypes.Contains(t) ? "pill--active" : "")"
+                                        @onclick="() => ToggleType(t)">
+                                    @t
+                                </button>
+                            }
+                        </div>
+                    </div>
+
+                    <button class="btn-clear" @onclick="ClearFilters">Clear filters</button>
+                </div>
+            }
         </div>
 
         @if (projects == null)
@@ -76,6 +92,7 @@
 
 @code {
     private Project[]? projects;
+    private bool filtersOpen = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -103,6 +120,11 @@
     private string nameFilter = string.Empty;
     private HashSet<string> selectedTechs = new();
     private HashSet<string> selectedTypes = new();
+
+    private int ActiveFilterCount =>
+        selectedTechs.Count +
+        selectedTypes.Count +
+        (string.IsNullOrWhiteSpace(nameFilter) ? 0 : 1);
 
     private IEnumerable<string> AllTechs => projects?.SelectMany(p => p.Techs ?? Array.Empty<string>()).Distinct().OrderBy(x => x) ?? Enumerable.Empty<string>();
     private IEnumerable<string> AllTypes => projects?.Select(p => p.Type).Where(x => !string.IsNullOrEmpty(x)).Distinct().OrderBy(x => x) ?? Enumerable.Empty<string>();
@@ -135,6 +157,8 @@
             yield return p;
         }
     }
+
+    private void ToggleFilters() => filtersOpen = !filtersOpen;
 
     private void ClearFilters()
     {

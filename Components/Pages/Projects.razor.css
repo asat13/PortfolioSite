@@ -15,16 +15,96 @@
     line-height: 1.6;
 }
 
+/* ===== FILTER TOGGLE ===== */
+.filters-wrapper {
+    margin-bottom: var(--space-lg);
+}
+
+.filters-toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-800);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    font-size: var(--small);
+    font-family: var(--font-sans);
+    font-weight: var(--font-medium-weight);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color var(--duration-fast) var(--easing), border-color var(--duration-fast) var(--easing);
+}
+
+.filters-toggle:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+.filters-toggle[aria-expanded="true"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+}
+
+.filters-toggle:focus-visible {
+    outline: 2px solid var(--accent-1);
+    outline-offset: 2px;
+}
+
+.filters-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.filters-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: rgba(79, 209, 197, 0.15);
+    color: var(--accent-1);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.filters-chevron {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform var(--duration-fast) var(--easing);
+    flex-shrink: 0;
+    margin-bottom: 3px;
+}
+
+.filters-chevron--open {
+    transform: rotate(-135deg);
+    margin-bottom: -3px;
+}
+
 /* ===== FILTERS ===== */
 .filters {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-    margin-bottom: var(--space-lg);
+    margin-top: 2px;
     padding: var(--space-md);
     background: var(--bg-800);
-    border-radius: var(--radius-md);
     border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
 
 .filter-group {
