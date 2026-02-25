@@ -8,5 +8,6 @@ namespace PortfolioWebsiteProject.Models
         public string URL { get; set; } = string.Empty;
         public string[] Techs { get; set; } = System.Array.Empty<string>();
         public string Type { get; set; } = string.Empty;
+        public int Year { get; set; } = DateTime.MinValue.Year;
     }
 }

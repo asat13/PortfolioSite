@@ -6,6 +6,7 @@
     "url": "https://example.com/space-shooter",
     "techs": ["Unity", "C#","VR", "360 Video", "Spatial Audio", "Optitrack", "Leap Motion", "Oculus Rift", "Oculus Quest", "HTC Vive", "GearVR", "Google Cardboard", "Unreal Engine 4", "C++"],
     "platforms": ["Oculus Rift","Oculus Quest", "HTC Vive", "GearVR", "Google Cardboard"],
+    "year": 2017,
     "type": "Game"
   },
   {
@@ -15,6 +16,7 @@
     "url": "https://example.com/portfolio",
     "techs": [".NET", "Blazor", "C#"],
     "platforms": ["Web"],
+    "year": 2026,
     "type": "Web"
   },
     {
@@ -25,6 +27,7 @@
         "url": "https://example.com/chat-app",
         "techs": ["Unreal Engine 4", "C++", "VR"],
         "platforms": ["HTC Vive", "Oculus Rift"],
+        "year": 2017,
         "type": "Game"
     },
   {
@@ -35,6 +38,7 @@
     "url": "https://example.com/portfolio",
     "techs": ["Unreal Engine 4", "C++", "VR"],
     "platforms": ["HTC Vive", "Oculus Rift"],
+    "year": 2017,
     "type": "Game"
   },
   {
@@ -44,6 +48,7 @@
     "url": "https://example.com/portfolio",
     "techs": ["Unity", "C#", "VR"],
     "platforms": ["Oculus Quest"],
+    "year": 2018,
     "type": "Research"
   }, 
   {
@@ -54,6 +59,7 @@
     "url": "https://example.com/portfolio",
     "techs": ["Unity", "C#", "VR"],
     "platforms": ["Oculus Rift"],
+    "year": 2016,
     "type": "Game"
   }
 ]

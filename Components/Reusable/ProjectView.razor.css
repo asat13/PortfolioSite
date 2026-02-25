@@ -34,7 +34,7 @@
 
 .pv-title {
     color: var(--text-primary);
-    font-size: var(--small);
+    font-size: var(--lead);
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -58,6 +58,13 @@
     color: var(--text-secondary);
     line-height: 1.5;
     margin: 0;
+}
+
+.pv-meta {
+    display: flex;
+    align-self: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
 }
 
 .pv-techs {

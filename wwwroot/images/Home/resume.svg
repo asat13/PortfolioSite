@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Page body -->
+  <path fill="#1a1a1a" d="M14 2H6C4.895 2 4 2.895 4 4v16c0 1.105.895 2 2 2h12c1.105 0 2-.895 2-2V8l-6-6z"/>
+  <!-- Folded corner (white) -->
+  <path fill="white" d="M14 2v6h6L14 2z"/>
+  <!-- Text lines (white) -->
+  <line x1="8" y1="10" x2="12" y2="10" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="8" y1="13" x2="16" y2="13" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="8" y1="16" x2="16" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
