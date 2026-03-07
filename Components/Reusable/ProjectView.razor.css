@@ -1,31 +1,60 @@
+/* === PROJECT CARD === */
 .project-card {
-    background: linear-gradient(180deg, var(--card), rgba(17, 24, 39, 0.85));
+    background: var(--bg-card);
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
     display: flex;
     flex-direction: column;
+    position: relative;
     transition:
-        transform var(--duration-medium) var(--easing),
-        box-shadow var(--duration-medium) var(--easing);
+        transform     var(--dur-mid) cubic-bezier(0.22, 0.9, 0.30, 1),
+        border-color  var(--dur-mid) ease,
+        box-shadow    var(--dur-mid) ease;
+}
+
+/* Inner glow ring — invisible at rest, blooms on hover */
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 0 0 1px transparent;
+    transition: box-shadow var(--dur-mid) ease;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .project-card:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.7);
+    transform: translateY(-8px);
+    border-color: var(--border-mid);
+    box-shadow:
+        0 24px 56px rgba(147, 51, 234, 0.22),
+        0 8px 20px rgba(0, 0, 0, 0.55);
 }
 
+.project-card:hover::after {
+    box-shadow: inset 0 0 0 1px rgba(192, 132, 252, 0.28);
+}
+
+/* === IMAGE === */
 .pv-image {
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
     display: block;
+    transition: filter var(--dur-mid) ease;
 }
 
+.project-card:hover .pv-image {
+    filter: brightness(1.06) saturate(1.08);
+}
+
+/* === LABEL BAR === */
 .pv-label-bar {
     height: 48px;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
+    background: linear-gradient(90deg, rgba(17, 17, 49, 0.95), rgba(22, 22, 60, 0.95));
+    border-top: 1px solid var(--border-subtle);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,16 +62,19 @@
 }
 
 .pv-title {
+    font-family: var(--font-display);
     color: var(--text-primary);
-    font-size: var(--lead);
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
     text-align: center;
+    letter-spacing: 0.3px;
 }
 
+/* === BODY === */
 .pv-body {
     padding: var(--space-sm) var(--space-md);
     flex: 1;
@@ -56,7 +88,7 @@
 .pv-description {
     font-size: var(--small);
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 0;
 }
 
@@ -76,39 +108,51 @@
 }
 
 .pv-tech-badge {
-    background: var(--glass-overlay);
-    color: var(--muted);
+    background: rgba(147, 51, 234, 0.10);
+    color: var(--purple-300);
     padding: 2px var(--space-xs);
     border-radius: var(--radius-full);
-    font-size: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 11px;
+    font-family: var(--font-body);
+    border: 1px solid rgba(139, 92, 246, 0.20);
 }
 
+/* === CTA === */
 .pv-cta {
     padding: var(--space-xs) var(--space-md) var(--space-md);
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 3;
 }
 
 .pv-button {
     display: inline-block;
     background: transparent;
-    color: var(--accent-1);
-    border: 1px solid rgba(79, 209, 197, 0.25);
+    color: var(--accent-bright);
+    border: 1px solid rgba(192, 132, 252, 0.25);
     border-radius: var(--radius-sm);
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-xs) var(--space-md);
     font-size: var(--small);
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
+    font-weight: var(--fw-medium);
     text-decoration: none;
-    transition: background var(--duration-fast) var(--easing);
+    transition:
+        background    var(--dur-fast) ease,
+        border-color  var(--dur-fast) ease,
+        box-shadow    var(--dur-fast) ease,
+        transform     var(--dur-fast) ease;
 }
 
 .pv-button:hover {
-    background: rgba(79, 209, 197, 0.08);
-    color: var(--accent-1);
+    background: rgba(147, 51, 234, 0.20);
+    border-color: rgba(192, 132, 252, 0.52);
+    color: var(--accent-bright);
+    box-shadow: 0 0 18px rgba(147, 51, 234, 0.28);
+    transform: translateY(-1px);
 }
 
 .pv-button:focus-visible {
-    outline: 2px solid var(--accent-1);
+    outline: 2px solid var(--accent-bright);
     outline-offset: 2px;
 }

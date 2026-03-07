@@ -1,55 +1,45 @@
-.home-hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
+/* === ENTRANCE ANIMATIONS — Home page === */
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-.home-hero h1 {
-    margin: 0 0 0.5rem 0;
-    font-size: 2rem;
+.profile-wrapper {
+    animation: fade-up 0.65s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.08s;
 }
 
-.home-intro {
-    max-width: 1100px; /* match the banner image max-width */
-    width: 100%;
-    color: #333;
-    line-height: 1.5;
-    text-align: center;
-    margin: 0 auto;
+.hero-greeting {
+    animation: fade-up 0.60s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.20s;
 }
 
-/* Ensure page content doesn't hide under the sticky top-row */
-:host {
-    display: block;
-    padding-top: 0.5rem; /* small breathing room under the top-row */
+.hero-name {
+    animation: fade-up 0.70s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.30s;
 }
 
-.home-social {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem 0 2.5rem 0;
+.hero-title {
+    animation: fade-up 0.60s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.42s;
 }
 
-.home-social .social-link {
-    display: inline-flex;
-    background: transparent;
-    border-radius: 8px;
-    padding: 0.35rem;
-    transition: background-color 150ms ease, transform 120ms ease;
+.hero-intro {
+    animation: fade-up 0.60s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.52s;
 }
 
-.home-social .social-link:hover {
-    background-color: rgba(0,0,0,0.06);
-    transform: translateY(-2px);
+.hero-cta {
+    animation: fade-up 0.60s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.62s;
 }
 
-.home-social .social-icon {
-    width: 40px;
-    height: 40px;
-    display: block;
-    color: #111;
+.hero-social {
+    animation: fade-up 0.60s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.72s;
+}
+
+.about-section {
+    animation: fade-up 0.75s cubic-bezier(0.22, 0.9, 0.30, 1) both;
+    animation-delay: 0.15s;
 }

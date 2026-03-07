@@ -1,11 +1,17 @@
-/* ===== PAGE ===== */
+/* === PAGE === */
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 .contact-page {
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 144px);
+    min-height: calc(100vh - 136px);
     padding: 100px 24px 80px;
     display: flex;
     justify-content: center;
+    animation: fade-up 0.60s cubic-bezier(0.22, 0.9, 0.30, 1) both;
 }
 
 .contact-bg {
@@ -14,11 +20,11 @@
     pointer-events: none;
     z-index: 0;
     background:
-        radial-gradient(500px 280px at 80% 10%, rgba(124, 92, 255, 0.07), transparent 60%),
-        radial-gradient(400px 220px at 10% 85%, rgba(79, 209, 197, 0.05), transparent 55%);
+        radial-gradient(600px 350px at 80% 10%, rgba(109, 40, 217, 0.13), transparent 60%),
+        radial-gradient(420px 300px at 15% 85%, rgba(147, 51, 234, 0.09), transparent 55%);
 }
 
-/* ===== CONTENT WRAPPER ===== */
+/* === CONTENT === */
 .contact-content {
     position: relative;
     z-index: 1;
@@ -31,32 +37,37 @@
 }
 
 .contact-eyebrow {
+    font-family: var(--font-body);
     font-size: var(--small);
-    color: var(--text-secondary);
-    letter-spacing: 1px;
+    font-weight: var(--fw-medium);
+    color: var(--accent-bright);
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: var(--space-xs);
 }
 
 .contact-heading {
+    font-family: var(--font-display);
     font-size: var(--scale-h1);
-    font-weight: var(--font-heading-weight);
-    color: var(--text-primary);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--purple-200) 55%, var(--accent-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    line-height: 1.02;
-    text-shadow: 0 2px 8px rgba(11, 18, 32, 0.35);
+    letter-spacing: 1px;
+    line-height: 1.05;
 }
 
 .contact-intro {
     max-width: 400px;
     font-size: var(--lead);
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.75;
     margin-top: var(--space-md);
 }
 
-/* ===== INFO PANEL ===== */
+/* === INFO PANEL === */
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -64,12 +75,16 @@
     gap: var(--space-lg);
     margin-top: var(--space-xl);
     width: 100%;
+    padding: var(--space-lg);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
 }
 
 .contact-info-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: 0;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -79,27 +94,30 @@
 .contact-info-item {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-subtle);
 }
+.contact-info-item:first-child { padding-top: 0; }
+.contact-info-item:last-child  { border-bottom: none; padding-bottom: 0; }
 
 .contact-info-label {
-    font-size: 11px;
-    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: var(--xs);
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    font-weight: var(--font-medium-weight);
+    letter-spacing: 1px;
+    font-weight: var(--fw-medium);
 }
 
 .contact-info-link {
+    font-family: var(--font-body);
     font-size: var(--small);
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color var(--duration-fast) var(--easing);
+    transition: color var(--dur-fast) var(--ease);
 }
-
-.contact-info-link:hover {
-    color: var(--accent-1);
-}
+.contact-info-link:hover { color: var(--accent-bright); }
 
 .contact-social {
     display: flex;
@@ -107,13 +125,8 @@
     align-items: center;
 }
 
-/* ===== RESPONSIVE ===== */
+/* === RESPONSIVE === */
 @media (max-width: 699px) {
-    .contact-page {
-        padding: 80px 24px 60px;
-    }
-
-    .contact-heading {
-        font-size: 32px;
-    }
+    .contact-page { padding: 80px 24px 60px; }
+    .contact-heading { font-size: 32px; }
 }
