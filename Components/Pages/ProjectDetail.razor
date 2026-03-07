@@ -1,0 +1,133 @@
+@page "/project/{TitleSlug}"
+@attribute [StreamRendering]
+@rendermode InteractiveServer
+@using PortfolioWebsiteProject.Models
+@using System.Text.Json
+@using System.IO
+
+<PageTitle>@(project?.Title ?? "Project") — Andre Maestas</PageTitle>
+
+<div class="pd-page">
+    <div class="pd-bg" aria-hidden="true"></div>
+
+    <div class="pd-content">
+        <a class="pd-back" href="/projects">← Back to Projects</a>
+
+        @if (!initialized)
+        {
+            <p class="pd-state-msg"><em>Loading…</em></p>
+        }
+        else if (project == null)
+        {
+            <p class="pd-state-msg">Project not found.</p>
+        }
+        else
+        {
+            <div class="pd-layout">
+
+                <!-- ===== LEFT: Media panel ===== -->
+                <div class="pd-media">
+                    <img class="pd-main-image" src="@project.ImageSrc" alt="@project.Title" />
+
+                    <!-- Additional media can be added here (gallery, video, screenshots, etc.) -->
+                    <div class="pd-media-slots" aria-label="Additional media">
+                    </div>
+                </div>
+
+                <!-- ===== RIGHT: Info panel ===== -->
+                <div class="pd-info">
+                    <h1 class="pd-title">@project.Title</h1>
+
+                    <div class="pd-meta-row">
+                        <div class="pd-meta-item">
+                            <span class="pd-meta-label">Year</span>
+                            <span class="pd-meta-value">@project.Year</span>
+                        </div>
+                        <div class="pd-meta-item">
+                            <span class="pd-meta-label">Type</span>
+                            <span class="pd-meta-value">@project.Type</span>
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrWhiteSpace(project.LongDescription) || !string.IsNullOrWhiteSpace(project.Description))
+                    {
+                        <div class="pd-section">
+                            <p class="pd-section-label">About</p>
+                            <p class="pd-body">
+                                @(!string.IsNullOrWhiteSpace(project.LongDescription) ? project.LongDescription : project.Description)
+                            </p>
+                        </div>
+                    }
+
+                    @if (project.Techs?.Any() == true)
+                    {
+                        <div class="pd-section">
+                            <p class="pd-section-label">Technologies</p>
+                            <div class="pd-chips">
+                                @foreach (var tech in project.Techs)
+                                {
+                                    <span class="pd-chip">@tech</span>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    @if (project.Platforms?.Any() == true)
+                    {
+                        <div class="pd-section">
+                            <p class="pd-section-label">Platforms</p>
+                            <div class="pd-chips">
+                                @foreach (var platform in project.Platforms)
+                                {
+                                    <span class="pd-chip pd-chip--platform">@platform</span>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(project.URL))
+                    {
+                        <div class="pd-cta">
+                            <a class="pd-external-btn" href="@project.URL" target="_blank" rel="noopener noreferrer">
+                                View Project ↗
+                            </a>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string TitleSlug { get; set; } = string.Empty;
+
+    private Project? project;
+    private bool initialized = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            string filePath = Path.Combine(AppContext.BaseDirectory, "Data", "projects.json");
+            if (File.Exists(filePath))
+            {
+                string json = await File.ReadAllTextAsync(filePath);
+                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                var all = JsonSerializer.Deserialize<Project[]>(json, options);
+                project = all?.FirstOrDefault(p =>
+                    string.Equals(p.Title, Uri.UnescapeDataString(TitleSlug), StringComparison.OrdinalIgnoreCase));
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading project: {ex.Message}");
+        }
+        finally
+        {
+            initialized = true;
+        }
+    }
+}

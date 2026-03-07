@@ -27,14 +27,11 @@
         }
     </div>
 
-    @if (!string.IsNullOrEmpty(Project?.URL))
-    {
-        <div class="pv-cta">
-            <a class="pv-button" href="@Project.URL" target="_blank" rel="noopener noreferrer">
-                View Project
-            </a>
-        </div>
-    }
+    <div class="pv-cta">
+        <a class="pv-button" href="/project/@Uri.EscapeDataString(Project?.Title ?? string.Empty)">
+            View Project
+        </a>
+    </div>
 </div>
 
 @code {
