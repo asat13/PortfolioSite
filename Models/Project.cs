@@ -1,4 +1,4 @@
-namespace PortfolioWebsiteProject.Models
+namespace PortfolioSiteWasm.Models
 {
     public class Project
     {
@@ -6,9 +6,11 @@ namespace PortfolioWebsiteProject.Models
         public string Description { get; set; } = string.Empty;
         public string LongDescription { get; set; } = string.Empty;
         public string ImageSrc { get; set; } = "images/error.svg";
+
+        public string YoutubeURL { get; set; } = string.Empty;
         public string URL { get; set; } = string.Empty;
-        public string[] Techs { get; set; } = System.Array.Empty<string>();
-        public string[] Platforms { get; set; } = System.Array.Empty<string>();
+        public string[] Techs { get; set; } = Array.Empty<string>();
+        public string[] Platforms { get; set; } = Array.Empty<string>();
         public string Type { get; set; } = string.Empty;
         public int Year { get; set; } = DateTime.MinValue.Year;
     }

@@ -84,6 +84,19 @@
     flex-direction: column;
     gap: var(--space-sm);
     min-height: 80px;
+    min-width: none;
+}
+
+.pd-media-slot {
+    width: 100%;
+}
+
+.pd-media-slot iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border-radius: var(--radius-md);
 }
 
 /* === INFO PANEL === */
@@ -230,8 +243,10 @@
 
 /* === RESPONSIVE === */
 @media (max-width: 699px) {
-    .pd-page { padding: 60px 20px 60px; }
-    .pd-layout { grid-template-columns: 1fr; }
+    .pd-page { padding: 48px 16px 60px; }
+    .pd-layout { grid-template-columns: 1fr; gap: var(--space-md); }
     .pd-media { position: static; }
-    .pd-title { font-size: 32px; }
+    .pd-title { font-size: clamp(24px, 7vw, 32px); }
+    .pd-meta-row { gap: var(--space-md); }
+    .pd-external-btn { width: 100%; text-align: center; box-sizing: border-box; }
 }

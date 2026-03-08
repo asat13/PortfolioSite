@@ -1,9 +1,6 @@
 @page "/project/{TitleSlug}"
-@attribute [StreamRendering]
-@rendermode InteractiveServer
-@using PortfolioWebsiteProject.Models
-@using System.Text.Json
-@using System.IO
+@using PortfolioSiteWasm.Models
+@inject HttpClient Http
 
 <PageTitle>@(project?.Title ?? "Project") — Andre Maestas</PageTitle>
 
@@ -11,7 +8,7 @@
     <div class="pd-bg" aria-hidden="true"></div>
 
     <div class="pd-content">
-        <a class="pd-back" href="/projects">← Back to Projects</a>
+        <a class="pd-back" href="/projects">&larr; Back to Projects</a>
 
         @if (!initialized)
         {
@@ -31,6 +28,12 @@
 
                     <!-- Additional media can be added here (gallery, video, screenshots, etc.) -->
                     <div class="pd-media-slots" aria-label="Additional media">
+                        @if (!string.IsNullOrEmpty(project.YoutubeURL))
+                        {
+                            <div class="pd-media-slot">
+                                <iframe src="@project.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        }
                     </div>
                 </div>
 
@@ -111,15 +114,9 @@
     {
         try
         {
-            string filePath = Path.Combine(AppContext.BaseDirectory, "Data", "projects.json");
-            if (File.Exists(filePath))
-            {
-                string json = await File.ReadAllTextAsync(filePath);
-                var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                var all = JsonSerializer.Deserialize<Project[]>(json, options);
-                project = all?.FirstOrDefault(p =>
-                    string.Equals(p.Title, Uri.UnescapeDataString(TitleSlug), StringComparison.OrdinalIgnoreCase));
-            }
+            var all = await Http.GetFromJsonAsync<Project[]>("data/projects.json");
+            project = all?.FirstOrDefault(p =>
+                string.Equals(p.Title, Uri.UnescapeDataString(TitleSlug), StringComparison.OrdinalIgnoreCase));
         }
         catch (Exception ex)
         {
