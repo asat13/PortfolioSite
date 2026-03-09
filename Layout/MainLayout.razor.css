@@ -1,2 +1,16 @@
 /* Layout is styled globally in app.css.
    Legacy Blazor sidebar/top-row styles removed — no longer applicable to current markup. */
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}

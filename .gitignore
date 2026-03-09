@@ -1,0 +1,6 @@
+*.coreftp
+bin/
+obj/
+.vs/
+.vscode/
+
