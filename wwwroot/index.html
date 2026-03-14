@@ -266,15 +266,34 @@
     </div>
 
     <script>
-        if (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function') {
-            // WebAssembly supported — load Blazor
-            var s = document.createElement('script');
-            s.src = '_framework/blazor.webassembly.js';
-            document.body.appendChild(s);
-        } else {
-            // No WebAssembly — show static fallback
+        function showFallback() {
             document.getElementById('app').style.display = 'none';
             document.getElementById('fallback').style.display = 'block';
+        }
+
+        function tryLoadBlazor() {
+            try {
+                var s = document.createElement('script');
+                s.src = '_framework/blazor.webassembly.js';
+                s.onerror = function () { showFallback(); };
+                document.body.appendChild(s);
+
+                // If Blazor hasn't rendered after 15s, fall back
+                setTimeout(function () {
+                    var app = document.getElementById('app');
+                    if (app && app.querySelector('.app-loading')) {
+                        showFallback();
+                    }
+                }, 15000);
+            } catch (e) {
+                showFallback();
+            }
+        }
+
+        if (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function') {
+            tryLoadBlazor();
+        } else {
+            showFallback();
         }
     </script>
 </body>
