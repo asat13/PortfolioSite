@@ -3,7 +3,15 @@
 @using PortfolioSiteWasm.Models
 
 <div class="project-card">
-    <img src="@Project?.ImageSrc" alt="@Project?.Title" class="pv-image" loading="lazy" />
+    <div class="pv-image-wrapper">
+        <img src="@Project?.ImageSrc" alt="@Project?.Title" class="pv-image" loading="lazy" />
+        @if (!string.IsNullOrEmpty(Project?.ProjectCategory))
+        {
+            <span class="pv-category-badge @(Project.ProjectCategory == "Professional" ? "pv-category-badge--pro" : "pv-category-badge--personal")">
+                @Project.ProjectCategory
+            </span>
+        }
+    </div>
 
     <div class="pv-label-bar">
         <h3 class="pv-title">@Project?.Title</h3>
@@ -11,6 +19,10 @@
 
     <div class="pv-body">
         <p class="pv-description">@Project?.Description</p>
+        @if (!string.IsNullOrEmpty(Project?.Contribution))
+        {
+            <p class="pv-contribution">@Project.Contribution</p>
+        }
         @if (Project?.Techs?.Any() == true)
         {
             <div class="pv-techs">

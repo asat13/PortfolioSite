@@ -1,15 +1,31 @@
 [
   {
+    "title": "Unity",
+    "description": "Unity is a cross-platform game engine developed by Unity Technologies, used to create video games and simulations for computers, consoles, and mobile devices.",
+    "longDescription": "Unity is a cross-platform game engine developed by Unity Technologies, used to create video games and simulations for computers, consoles, and mobile devices. It provides a comprehensive set of tools and features for game development, including a visual editor, scripting capabilities, physics engine, and support for 2D and 3D graphics. Unity is widely used in the gaming industry due to its versatility, ease of use, and strong community support.",
+    "imageSrc": "images/unity.png",
+    "url": "https://unity.com",
+    "youtubeUrl": "",
+    "techs": ["Unity", "C#", "VR"],
+    "platforms": ["Oculus Quest"],
+    "year": 2020,
+    "type": "Application",
+    "contribution": "Automation Engineer/SDET Unity XR Support",
+    "projectCategory": "Professional"
+  },
+  {
     "title": "EcoRift",
     "description": "The EcoRift presents a virtual reality experience of being in national parks and preserves of the American Soutwest.",
     "longDescription": "The EcoRift presents a virtual reality experience of being in national parks and preserves of the American Southwest. EcoRift links together full 360-degree spherical visual and acoustic recordings, using the Oculus head tracking feature to synchronize an auditory and visual Point of View (POV) so the user can look around the environment as if truly present in it.  EcoRift can be used in exhibitions in park communities, at festivals and galleries and in other venues internationally. In the future individuals will be allowed to capture their own audio-visual experience in National Parks and upload it for sharing.  Along with the development of other rich media tools, EcoRift directs communities to issues of sustainability and environmental engagement. It raises questions of how digital technology and rich media environments can be used to reassess our value systems and develop a better understanding of the parks’ precious, yet fragile ecosystems. Given the ongoing need to increase ecological consciousness, the EcoRift is designed to provide new virtual immersive experiences to cultivate environmental stewardship and community agency. ",
     "imageSrc": "images/ecoriftLogo.webp",
     "url": "",
     "youtubeUrl": "",
-    "techs": ["Unity", "C#","VR", "360 Video", "Spatial Audio", "Optitrack", "Leap Motion", "Oculus Rift", "Oculus Quest", "HTC Vive", "GearVR", "Google Cardboard", "Unreal Engine 4", "C++"],
+    "techs": ["Unity", "C#","VR", "360 Video", "Spatial Audio"],
     "platforms": ["Oculus Rift","Oculus Quest", "HTC Vive", "GearVR", "Google Cardboard"],
     "year": 2017,
-    "type": "Game"
+    "type": "Game",
+    "contribution": "Lead Programmer",
+    "projectCategory": "Personal"
   },
   {
     "title": "Portfolio Site",
@@ -18,10 +34,12 @@
     "imageSrc": "images/website.png",
     "url": "",
     "youtubeUrl": "",
-    "techs": [".NET", "Blazor", "C#"],
+    "techs": [".NET", "Blazor", "C#", "HTML", "CSS"],
     "platforms": ["Web"],
     "year": 2026,
-    "type": "Web"
+    "type": "Web",
+    "contribution": "Lead Programmer",
+    "projectCategory": "Personal"
   },
     {
         "title": "Survival VR",
@@ -33,7 +51,9 @@
         "techs": ["Unreal Engine 4", "C++", "VR"],
         "platforms": ["HTC Vive", "Oculus Rift"],
         "year": 2017,
-        "type": "Game"
+        "type": "Game",
+        "contribution": "Lead Programmer",
+    "projectCategory": "Personal"
     },
   {
     "title": "Survival VR 2.0 : Robots Revenge",
@@ -45,7 +65,9 @@
     "techs": ["Unreal Engine 4", "C++", "VR"],
     "platforms": ["HTC Vive", "Oculus Rift"],
     "year": 2017,
-    "type": "Game"
+    "type": "Game",
+    "contribution": "Lead Programmer",
+    "projectCategory": "Personal"
   },
   {
     "title": "Concert VR",
@@ -54,14 +76,72 @@
     "imageSrc": "images/concertvr.png",
     "url": "",
     "youtubeUrl": "",
-    "techs": ["Unity", "C#", "VR"],
+    "techs": ["Unity", "C#", "VR", "360 Video", "Spatial Audio"],
     "platforms": ["Oculus Quest"],
     "year": 2018,
-    "type": "Research"
-  }, 
+    "type": "Research",
+    "contribution": "Lead Programmer",
+    "projectCategory": "Personal"
+  },
+  {
+    "title": "Tell Me Why",
+    "description": "An episodic narrative adventure following twins Tyler and Alyson as they investigate the mysterious death of their mother in rural Alaska.",
+    "longDescription": "Tell Me Why is a three-chapter episodic adventure game developed by DON'T NOD and published by Xbox Game Studios. Players alternate between twin protagonists Tyler and Alyson, using their shared telepathic ability to relive memories and unravel the truth behind their mother's death. Noted as the first major-studio game to feature a playable transgender lead character.",
+    "imageSrc": "images/tellmewhy.jpg",
+    "url": "https://store.steampowered.com/app/1180660/Tell_Me_Why/",
+    "youtubeUrl": "https://www.youtube.com/embed/DRN2VgTB-J8?si=HPkJZqBufjkVO8OE",
+    "techs": ["Unreal Engine 4", "C++"],
+    "platforms": ["PC", "Xbox One"],
+    "year": 2020,
+    "type": "Game",
+    "contribution": "DSTE/SDET",
+    "projectCategory": "Professional"
+  },
+  {
+    "title": "Age of Empires: Definitive Edition",
+    "description": "A fully remastered version of the 1997 classic real-time strategy game, featuring 4K visuals, a remastered soundtrack, and the Rise of Rome expansion.",
+    "longDescription": "Age of Empires: Definitive Edition is a complete remake of the original 1997 Age of Empires, rebuilt with 4K Ultra HD graphics, improved pathfinding, a fully remastered soundtrack, and all content from the Rise of Rome expansion. Developed by Forgotten Empires and Tantalus Media, and published by Xbox Game Studios.",
+    "imageSrc": "images/aoe1de.jpg",
+    "url": "https://store.steampowered.com/app/1017900/Age_of_Empires_Definitive_Edition/",
+    "youtubeUrl": "https://www.youtube.com/embed/g5GwKbk2ihA?si=mk7ce-ZB66Wt3_t8",
+    "techs": ["C++"],
+    "platforms": ["PC"],
+    "year": 2018,
+    "type": "Game",
+    "contribution": "DSTE/SDET",
+    "projectCategory": "Professional"
+  },
+  {
+    "title": "Age of Empires II: Definitive Edition",
+    "description": "A landmark remaster of the beloved 1999 RTS, bringing 4K graphics, remastered audio, improved AI, and all major expansions to modern platforms.",
+    "longDescription": "Age of Empires II: Definitive Edition celebrates the 20th anniversary of the franchise with a fully rebuilt visual engine supporting 4K resolution, remastered soundtrack, and all previous DLC including The Last Khans. Developed by World's Edge, Forgotten Empires, CaptureAge, and Tantalus Media, published by Xbox Game Studios.",
+    "imageSrc": "images/aoe2de.jpg",
+    "url": "https://store.steampowered.com/app/813780/Age_of_Empires_II_Definitive_Edition/",
+    "youtubeUrl": "https://www.youtube.com/embed/N6kd1SYHW5k?si=ZO-mA3OY9rduEJQ3",
+    "techs": ["C++", "Genie Engine"],
+    "platforms": ["PC", "Xbox One", "Xbox Series X|S"],
+    "year": 2019,
+    "type": "Game",
+    "contribution": "DSTE/SDET",
+    "projectCategory": "Professional"
+  },
+  {
+    "title": "Age of Empires III: Definitive Edition",
+    "description": "A comprehensive remaster of Age of Empires III featuring improved visuals, new content, rebalanced gameplay, and two new civilizations.",
+    "longDescription": "Age of Empires III: Definitive Edition is a full remaster of the 2005 original, offering 4K Ultra HD graphics, a fully remastered soundtrack, and all previously released DLC. It introduces two new civilizations — the Inca and Sweden — along with significant gameplay rebalancing. Developed by Tantalus Media and Forgotten Empires, published by Xbox Game Studios.",
+    "imageSrc": "images/aoe3de.jpg",
+    "url": "https://store.steampowered.com/app/933110/Age_of_Empires_III_Definitive_Edition/",
+    "youtubeUrl": "https://www.youtube.com/embed/fCcRNUlE7ek?si=wiwWtfu86DFUGRGN",
+    "techs": ["C++"],
+    "platforms": ["PC"],
+    "year": 2020,
+    "type": "Game",
+    "contribution": "DSTE/SDET",
+    "projectCategory": "Professional"
+  },
   {
     "title": "VR Enviroments",
-    "description": "This website built with Blazor.",
+    "description": "VR Enviroments is an experimental system combining Oculus VR with accurate spatial tracking using an Optitrack Mocap System.",
     "longDescription": "VR Enviroments is an experimental system combining Oculus VR with accurate spatial tracking using an Optitrack Mocap System. The system also utilizes a Leap Motion controller to encourage interaction and immersion.",
     "imageSrc": "images/VREnviroments.webp",
     "url": "",
@@ -69,6 +149,8 @@
     "techs": ["Unity", "C#", "VR"],
     "platforms": ["Oculus Rift"],
     "year": 2016,
-    "type": "Game"
+    "type": "Game",
+    "contribution": "Lead Programmer",
+    "projectCategory": "Personal"
   }
 ]

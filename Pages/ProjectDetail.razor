@@ -39,7 +39,15 @@
 
                 <!-- ===== RIGHT: Info panel ===== -->
                 <div class="pd-info">
-                    <h1 class="pd-title">@project.Title</h1>
+                    <div class="pd-title-row">
+                        <h1 class="pd-title">@project.Title</h1>
+                        @if (!string.IsNullOrEmpty(project.ProjectCategory))
+                        {
+                            <span class="pd-category-badge @(project.ProjectCategory == "Professional" ? "pd-category-badge--pro" : "pd-category-badge--personal")">
+                                @project.ProjectCategory
+                            </span>
+                        }
+                    </div>
 
                     <div class="pd-meta-row">
                         <div class="pd-meta-item">
@@ -50,6 +58,13 @@
                             <span class="pd-meta-label">Type</span>
                             <span class="pd-meta-value">@project.Type</span>
                         </div>
+                        @if (!string.IsNullOrEmpty(project.Contribution))
+                        {
+                            <div class="pd-meta-item">
+                                <span class="pd-meta-label">Contribution</span>
+                                <span class="pd-meta-value">@project.Contribution</span>
+                            </div>
+                        }
                     </div>
 
                     @if (!string.IsNullOrWhiteSpace(project.LongDescription) || !string.IsNullOrWhiteSpace(project.Description))
