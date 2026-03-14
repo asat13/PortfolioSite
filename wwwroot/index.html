@@ -269,6 +269,8 @@
         function showFallback() {
             document.getElementById('app').style.display = 'none';
             document.getElementById('fallback').style.display = 'block';
+            var errUi = document.getElementById('blazor-error-ui');
+            if (errUi) errUi.style.display = 'none';
         }
 
         function tryLoadBlazor() {
@@ -289,6 +291,10 @@
                 showFallback();
             }
         }
+
+        // Catch unhandled errors from Blazor boot and fall back
+        window.addEventListener('error', function () { showFallback(); });
+        window.addEventListener('unhandledrejection', function () { showFallback(); });
 
         if (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function') {
             tryLoadBlazor();
