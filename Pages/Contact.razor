@@ -2,41 +2,79 @@
 
 <PageTitle>Contact — Andre Maestas</PageTitle>
 
-<section class="contact-page" aria-labelledby="contact-heading">
-    <div class="contact-bg" aria-hidden="true"></div>
+@if (!loaded)
+{
+    <section class="contact-page" aria-label="Loading">
+        <div class="contact-bg" aria-hidden="true"></div>
+        <div class="contact-content">
+            <div class="contact-skeleton-line skeleton-shimmer" style="width: 120px; height: 14px;"></div>
+            <div class="contact-skeleton-line skeleton-shimmer" style="width: 280px; height: 48px; margin-top: 8px;"></div>
+            <div class="contact-skeleton-line skeleton-shimmer" style="width: 320px; height: 14px; margin-top: 20px;"></div>
+            <div class="contact-skeleton-line skeleton-shimmer" style="width: 260px; height: 14px; margin-top: 8px;"></div>
 
-    <div class="contact-content">
-        <p class="contact-eyebrow">Get in touch</p>
-        <h1 id="contact-heading" class="contact-heading">Contact Me</h1>
-        <p class="contact-intro">
-            Have a project in mind, a job opportunity, or just want to say hello?
-            I'd love to hear from you.
-        </p>
-
-        <div class="contact-info">
-            <ul class="contact-info-list">
-                <li class="contact-info-item">
-                    <span class="contact-info-label">Email</span>
-                    <a class="contact-info-link" href="mailto:andremaestas13@gmail.com">andremaestas13@gmail.com</a>
-                </li>
-                <li class="contact-info-item">
-                    <span class="contact-info-label">GitHub</span>
-                    <a class="contact-info-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer">github.com/asat13</a>
-                </li>
-                <li class="contact-info-item">
-                    <span class="contact-info-label">LinkedIn</span>
-                    <a class="contact-info-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer">linkedin.com/in/andremaestas</a>
-                </li>
-            </ul>
-
-            <div class="contact-social" aria-label="Social links">
-                <a class="social-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <img src="images/Home/github.svg" alt="GitHub" class="social-icon" />
-                </a>
-                <a class="social-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <img src="images/Home/linkedin.svg" alt="LinkedIn" class="social-icon" />
-                </a>
+            <div class="contact-skeleton-panel">
+                @for (int i = 0; i < 3; i++)
+                {
+                    <div class="contact-skeleton-item">
+                        <div class="contact-skeleton-line skeleton-shimmer" style="width: 60px; height: 12px;"></div>
+                        <div class="contact-skeleton-line skeleton-shimmer" style="width: 200px; height: 14px; margin-top: 4px;"></div>
+                    </div>
+                }
+                <div class="contact-skeleton-socials">
+                    <div class="contact-skeleton-social skeleton-shimmer"></div>
+                    <div class="contact-skeleton-social skeleton-shimmer"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+}
+else
+{
+    <section class="contact-page" aria-labelledby="contact-heading">
+        <div class="contact-bg" aria-hidden="true"></div>
+
+        <div class="contact-content">
+            <p class="contact-eyebrow">Get in touch</p>
+            <h1 id="contact-heading" class="contact-heading">Contact Me</h1>
+            <p class="contact-intro">
+                Have a project in mind, a job opportunity, or just want to say hello?
+                I'd love to hear from you.
+            </p>
+
+            <div class="contact-info">
+                <ul class="contact-info-list">
+                    <li class="contact-info-item">
+                        <span class="contact-info-label">Email</span>
+                        <a class="contact-info-link" href="mailto:andremaestas13@gmail.com">andremaestas13@gmail.com</a>
+                    </li>
+                    <li class="contact-info-item">
+                        <span class="contact-info-label">GitHub</span>
+                        <a class="contact-info-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer">github.com/asat13</a>
+                    </li>
+                    <li class="contact-info-item">
+                        <span class="contact-info-label">LinkedIn</span>
+                        <a class="contact-info-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer">linkedin.com/in/andremaestas</a>
+                    </li>
+                </ul>
+
+                <div class="contact-social" aria-label="Social links">
+                    <a class="social-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <img src="images/Home/github.svg" alt="GitHub" class="social-icon" />
+                    </a>
+                    <a class="social-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <img src="images/Home/linkedin.svg" alt="LinkedIn" class="social-icon" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+    private bool loaded = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loaded = true;
+    }
+}

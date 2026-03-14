@@ -238,6 +238,81 @@
     padding: var(--space-xl) 0;
 }
 
+/* === SKELETON LOADING === */
+@keyframes shimmer {
+    from { background-position: -400px center; }
+    to   { background-position: 400px center; }
+}
+
+.skeleton-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(139, 92, 246, 0.06) 0%,
+        rgba(139, 92, 246, 0.12) 40%,
+        rgba(139, 92, 246, 0.06) 80%
+    );
+    background-size: 400px 100%;
+    animation: shimmer 1.6s ease infinite;
+}
+
+.skeleton-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+}
+
+.skeleton-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+}
+
+.skeleton-label {
+    height: 48px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.skeleton-body {
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    flex: 1;
+}
+
+.skeleton-line {
+    height: 14px;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-chips {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: var(--space-xs);
+}
+
+.skeleton-chip {
+    width: 60px;
+    height: 22px;
+    border-radius: var(--radius-full);
+}
+
+.skeleton-cta {
+    padding: var(--space-xs) var(--space-md) var(--space-md);
+    display: flex;
+    justify-content: center;
+}
+
+.skeleton-btn {
+    width: 120px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 959px) {
     .project-grid { grid-template-columns: repeat(2, 1fr); }

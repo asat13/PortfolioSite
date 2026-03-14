@@ -2,75 +2,134 @@
 
 <PageTitle>Andre Maestas — Portfolio</PageTitle>
 
-<!-- Hero Section -->
-<section class="hero" id="home" aria-label="Introduction">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-content">
-        <div class="profile-wrapper">
-            <img class="profile-img" src="images/Home/me.webp" alt="Profile photo of Andre Maestas" />
-        </div>
-        <p class="hero-greeting">Hello, I'm</p>
-        <h1 class="hero-name">ANDRE MAESTAS</h1>
-        <p class="hero-title">I'm a software developer.</p>
-        <p class="hero-intro">
-            Specializing in Game and App Development with Unity, Unreal, .NET, and C#.
-            BA in Digital Culture and Certificate in Computer Gaming from Arizona State University.
-        </p>
-        <div class="hero-cta">
-            <a class="btn-primary-cta" href="/projects">View Projects</a>
-        </div>
-        <div class="hero-social" aria-label="Social links">
-            <a class="social-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="images/Home/github.svg" alt="GitHub" class="social-icon" />
-            </a>
-            <a class="social-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="images/Home/linkedin.svg" alt="LinkedIn" class="social-icon" />
-            </a>
-            <a class="social-link" href="resume.pdf" download="Andre_Maestas_Resume.pdf" aria-label="Download Resume" title="Download Resume">
-                <img src="images/Home/resume.svg" alt="Resume" class="social-icon" />
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section class="about-section" id="about" aria-labelledby="about-heading">
-    <div class="section-container">
-        <h2 id="about-heading" class="section-heading">About Me</h2>
-        <div class="about-grid">
-            <div class="about-left">
-                <p class="about-text">
-                    Andre is a software developer with expertise in game and application development using Unity, Unreal Engine, .NET, and C#.
-                </p>
-                <p class="about-text">
-                    She holds a BA in Digital Culture and a Certificate in Computer Gaming from Arizona State University.
-                </p>
-                <p class="about-text">
-                    Driven by a strong passion for games and emerging technologies, Andre continually pursues opportunities to expand her technical skills and deliver engaging, high-quality interactive experiences.
-                    She is actively open to new roles in the tech industry and looks forward to contributing to innovative projects that advance her growth as a developer.
-                </p>
+@if (!loaded)
+{
+    <!-- Hero Skeleton -->
+    <section class="hero" id="home" aria-label="Loading">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <div class="home-skeleton-avatar skeleton-shimmer"></div>
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 120px; height: 14px; margin-top: 32px;"></div>
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 340px; height: 48px; margin-top: 8px;"></div>
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 240px; height: 20px; margin-top: 8px;"></div>
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 460px; height: 14px; margin-top: 20px;"></div>
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 400px; height: 14px; margin-top: 8px;"></div>
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 160px; height: 44px; border-radius: 12px; margin-top: 32px;"></div>
+            <div class="home-skeleton-socials">
+                <div class="home-skeleton-social skeleton-shimmer"></div>
+                <div class="home-skeleton-social skeleton-shimmer"></div>
+                <div class="home-skeleton-social skeleton-shimmer"></div>
             </div>
-            <div class="about-right">
-                <h3 class="skills-heading">Skills</h3>
-                <div class="skills-list">
-                    <span class="skill-chip">C#</span>
-                    <span class="skill-chip">C++</span>
-                    <span class="skill-chip">Python</span>
-                    <span class="skill-chip">SQL</span>
-                    <span class="skill-chip">Unity</span>
-                    <span class="skill-chip">Unreal Engine</span>
-                    <span class="skill-chip">.NET</span>
-                    <span class="skill-chip">Vulkan</span>
-                    <span class="skill-chip">Android</span>
-                    <span class="skill-chip">Git</span>
-                    <span class="skill-chip">Agile/Scrum</span>
-                    <span class="skill-chip">Jenkins</span>
-                    <span class="skill-chip">Docker</span>
-                    <span class="skill-chip">Test Automation</span>
-                    <span class="skill-chip">Game Development</span>
-                    <span class="skill-chip">App Development</span>
+        </div>
+    </section>
+
+    <!-- About Skeleton -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <div class="home-skeleton-line skeleton-shimmer" style="width: 180px; height: 30px;"></div>
+            <div class="about-grid" style="margin-top: 32px;">
+                <div class="about-left">
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 100%; height: 14px;"></div>
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 90%; height: 14px; margin-top: 8px;"></div>
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 95%; height: 14px; margin-top: 8px;"></div>
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 80%; height: 14px; margin-top: 8px;"></div>
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 100%; height: 14px; margin-top: 20px;"></div>
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 85%; height: 14px; margin-top: 8px;"></div>
+                </div>
+                <div class="about-right" style="padding-left: 32px;">
+                    <div class="home-skeleton-line skeleton-shimmer" style="width: 100px; height: 20px;"></div>
+                    <div class="home-skeleton-chips">
+                        @for (int i = 0; i < 12; i++)
+                        {
+                            <div class="home-skeleton-chip skeleton-shimmer"></div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+}
+else
+{
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Introduction">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <div class="profile-wrapper">
+                <img class="profile-img" src="images/Home/me.webp" alt="Profile photo of Andre Maestas" />
+            </div>
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1 class="hero-name">ANDRE MAESTAS</h1>
+            <p class="hero-title">I'm a software developer.</p>
+            <p class="hero-intro">
+                Specializing in Game and App Development with Unity, Unreal, .NET, and C#.
+                BA in Digital Culture and Certificate in Computer Gaming from Arizona State University.
+            </p>
+            <div class="hero-cta">
+                <a class="btn-primary-cta" href="/projects">View Projects</a>
+            </div>
+            <div class="hero-social" aria-label="Social links">
+                <a class="social-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <img src="images/Home/github.svg" alt="GitHub" class="social-icon" />
+                </a>
+                <a class="social-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="images/Home/linkedin.svg" alt="LinkedIn" class="social-icon" />
+                </a>
+                <a class="social-link" href="resume.pdf" download="Andre_Maestas_Resume.pdf" aria-label="Download Resume" title="Download Resume">
+                    <img src="images/Home/resume.svg" alt="Resume" class="social-icon" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+        <div class="section-container">
+            <h2 id="about-heading" class="section-heading">About Me</h2>
+            <div class="about-grid">
+                <div class="about-left">
+                    <p class="about-text">
+                        Andre is a software developer with expertise in game and application development using Unity, Unreal Engine, .NET, and C#.
+                    </p>
+                    <p class="about-text">
+                        She holds a BA in Digital Culture and a Certificate in Computer Gaming from Arizona State University.
+                    </p>
+                    <p class="about-text">
+                        Driven by a strong passion for games and emerging technologies, Andre continually pursues opportunities to expand her technical skills and deliver engaging, high-quality interactive experiences.
+                        She is actively open to new roles in the tech industry and looks forward to contributing to innovative projects that advance her growth as a developer.
+                    </p>
+                </div>
+                <div class="about-right">
+                    <h3 class="skills-heading">Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-chip">C#</span>
+                        <span class="skill-chip">C++</span>
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">SQL</span>
+                        <span class="skill-chip">Unity</span>
+                        <span class="skill-chip">Unreal Engine</span>
+                        <span class="skill-chip">.NET</span>
+                        <span class="skill-chip">Vulkan</span>
+                        <span class="skill-chip">Android</span>
+                        <span class="skill-chip">Git</span>
+                        <span class="skill-chip">Agile/Scrum</span>
+                        <span class="skill-chip">Jenkins</span>
+                        <span class="skill-chip">Docker</span>
+                        <span class="skill-chip">Test Automation</span>
+                        <span class="skill-chip">Game Development</span>
+                        <span class="skill-chip">App Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+    private bool loaded = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loaded = true;
+    }
+}

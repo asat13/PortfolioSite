@@ -1,3 +1,62 @@
+/* === SKELETON LOADING === */
+@keyframes shimmer {
+    from { background-position: -400px center; }
+    to   { background-position: 400px center; }
+}
+
+.skeleton-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(139, 92, 246, 0.06) 0%,
+        rgba(139, 92, 246, 0.12) 40%,
+        rgba(139, 92, 246, 0.06) 80%
+    );
+    background-size: 400px 100%;
+    animation: shimmer 1.6s ease infinite;
+}
+
+.contact-skeleton-line {
+    border-radius: 6px;
+}
+
+.contact-skeleton-panel {
+    width: 100%;
+    margin-top: 56px;
+    padding: 32px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-skeleton-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 20px 0;
+    width: 100%;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.contact-skeleton-item:last-of-type {
+    border-bottom: none;
+}
+
+.contact-skeleton-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-skeleton-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
 /* === PAGE === */
 @keyframes fade-up {
     from { opacity: 0; transform: translateY(16px); }

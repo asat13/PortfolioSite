@@ -272,6 +272,71 @@
     text-align: center;
 }
 
+/* === SKELETON LOADING === */
+@keyframes shimmer {
+    from { background-position: -400px center; }
+    to   { background-position: 400px center; }
+}
+
+.skeleton-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(139, 92, 246, 0.06) 0%,
+        rgba(139, 92, 246, 0.12) 40%,
+        rgba(139, 92, 246, 0.06) 80%
+    );
+    background-size: 400px 100%;
+    animation: shimmer 1.6s ease infinite;
+}
+
+.pd-skeleton-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-md);
+}
+
+.pd-skeleton-title {
+    height: 48px;
+    width: 60%;
+    border-radius: var(--radius-sm);
+}
+
+.pd-skeleton-meta {
+    display: flex;
+    gap: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.pd-skeleton-meta-block {
+    width: 80px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+}
+
+.pd-skeleton-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.skeleton-line {
+    height: 14px;
+    border-radius: var(--radius-sm);
+}
+
+.pd-skeleton-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.skeleton-chip {
+    width: 70px;
+    height: 24px;
+    border-radius: var(--radius-full);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 699px) {
     .pd-page { padding: 48px 16px 60px; }

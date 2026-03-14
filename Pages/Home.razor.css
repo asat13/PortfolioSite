@@ -1,3 +1,56 @@
+/* === SKELETON LOADING === */
+@keyframes shimmer {
+    from { background-position: -400px center; }
+    to   { background-position: 400px center; }
+}
+
+.skeleton-shimmer {
+    background: linear-gradient(
+        90deg,
+        rgba(139, 92, 246, 0.06) 0%,
+        rgba(139, 92, 246, 0.12) 40%,
+        rgba(139, 92, 246, 0.06) 80%
+    );
+    background-size: 400px 100%;
+    animation: shimmer 1.6s ease infinite;
+}
+
+.home-skeleton-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+
+.home-skeleton-line {
+    border-radius: 6px;
+    max-width: 100%;
+}
+
+.home-skeleton-socials {
+    display: flex;
+    gap: 20px;
+    margin-top: 32px;
+}
+
+.home-skeleton-social {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.home-skeleton-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.home-skeleton-chip {
+    width: 90px;
+    height: 34px;
+    border-radius: 6px;
+}
+
 /* === ENTRANCE ANIMATIONS — Home page === */
 @keyframes fade-up {
     from { opacity: 0; transform: translateY(20px); }

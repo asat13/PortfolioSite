@@ -12,7 +12,31 @@
 
         @if (!initialized)
         {
-            <p class="pd-state-msg"><em>Loading…</em></p>
+            <div class="pd-layout">
+                <div class="pd-media">
+                    <div class="pd-skeleton-image skeleton-shimmer"></div>
+                </div>
+                <div class="pd-info">
+                    <div class="pd-skeleton-title skeleton-shimmer"></div>
+                    <div class="pd-skeleton-meta">
+                        <div class="pd-skeleton-meta-block skeleton-shimmer"></div>
+                        <div class="pd-skeleton-meta-block skeleton-shimmer"></div>
+                        <div class="pd-skeleton-meta-block skeleton-shimmer"></div>
+                    </div>
+                    <div class="pd-skeleton-section">
+                        <div class="skeleton-line skeleton-shimmer" style="width: 40%"></div>
+                        <div class="skeleton-line skeleton-shimmer" style="width: 100%"></div>
+                        <div class="skeleton-line skeleton-shimmer" style="width: 95%"></div>
+                        <div class="skeleton-line skeleton-shimmer" style="width: 80%"></div>
+                    </div>
+                    <div class="pd-skeleton-chips">
+                        <div class="skeleton-chip skeleton-shimmer"></div>
+                        <div class="skeleton-chip skeleton-shimmer"></div>
+                        <div class="skeleton-chip skeleton-shimmer"></div>
+                        <div class="skeleton-chip skeleton-shimmer"></div>
+                    </div>
+                </div>
+            </div>
         }
         else if (project == null)
         {
