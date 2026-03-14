@@ -12,44 +12,252 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="PortfolioSiteWasm.styles.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        /* Loading spinner */
+        .app-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #0D0D1F;
+            gap: 24px;
+        }
+        .app-loading-spinner {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 3px solid rgba(139, 92, 246, 0.15);
+            border-top-color: #C084FC;
+            animation: app-spin 0.8s linear infinite;
+        }
+        .app-loading-text {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            font-size: 14px;
+            color: #5E5578;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        @keyframes app-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Static fallback */
+        .fallback {
+            display: none;
+            min-height: 100vh;
+            background: #0D0D1F;
+            color: #EDE9FF;
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
+        .fallback-hero {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+            text-align: center;
+        }
+        .fallback-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid #1a1a3e;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            display: block;
+        }
+        .fallback-greeting {
+            font-size: 13px;
+            color: #5E5578;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 6px;
+        }
+        .fallback-name {
+            font-family: 'Syne', system-ui, sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 8px;
+            background: linear-gradient(135deg, #EDE9FF 0%, #DDD6FE 55%, #C084FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fallback-title {
+            font-size: 18px;
+            color: #A89EC4;
+            margin: 0 0 16px;
+        }
+        .fallback-intro {
+            font-size: 16px;
+            color: #A89EC4;
+            line-height: 1.75;
+            margin: 0 0 32px;
+        }
+        .fallback-notice {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 13px;
+            color: #C4B5FD;
+            margin-bottom: 40px;
+        }
+        .fallback-section {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+            text-align: center;
+        }
+        .fallback-section-title {
+            font-family: 'Syne', system-ui, sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            background: linear-gradient(135deg, #EDE9FF, #C4B5FD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fallback-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #111127;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        .fallback-contact-item {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        }
+        .fallback-contact-item:first-child { padding-top: 0; }
+        .fallback-contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .fallback-contact-label {
+            display: block;
+            font-size: 11px;
+            color: #5E5578;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .fallback-contact-link {
+            color: #A89EC4;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.15s ease;
+        }
+        .fallback-contact-link:hover { color: #C084FC; }
+        .fallback-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .fallback-skill {
+            background: rgba(139, 92, 246, 0.06);
+            color: #C4B5FD;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+        .fallback-resume-btn {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #9333EA, #C084FC);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(147, 51, 234, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .fallback-resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(147, 51, 234, 0.5);
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <style>
-            .app-loading {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                min-height: 100vh;
-                background: #0D0D1F;
-                gap: 24px;
-            }
-            .app-loading-spinner {
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                border: 3px solid rgba(139, 92, 246, 0.15);
-                border-top-color: #C084FC;
-                animation: app-spin 0.8s linear infinite;
-            }
-            .app-loading-text {
-                font-family: 'DM Sans', system-ui, sans-serif;
-                font-size: 14px;
-                color: #5E5578;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
-            }
-            @keyframes app-spin {
-                to { transform: rotate(360deg); }
-            }
-        </style>
         <div class="app-loading">
             <div class="app-loading-spinner"></div>
             <span class="app-loading-text">Loading</span>
         </div>
     </div>
+
+    <!-- Static fallback for browsers without WebAssembly or JavaScript -->
+    <div id="fallback" class="fallback">
+        <div class="fallback-hero">
+            <img class="fallback-avatar" src="images/Home/me.webp" alt="Andre Maestas" />
+            <p class="fallback-greeting">Hello, I'm</p>
+            <h1 class="fallback-name">ANDRE MAESTAS</h1>
+            <p class="fallback-title">Software Developer</p>
+            <p class="fallback-intro">
+                Specializing in Game and App Development with Unity, Unreal, .NET, and C#.
+                BA in Digital Culture and Certificate in Computer Gaming from Arizona State University.
+            </p>
+            <div class="fallback-notice">
+                This site requires a modern browser with WebAssembly support for the full experience.
+            </div>
+            <div>
+                <a class="fallback-resume-btn" href="resume.pdf" download="Andre_Maestas_Resume.pdf">Download Resume</a>
+            </div>
+        </div>
+
+        <div class="fallback-section">
+            <h2 class="fallback-section-title">Skills</h2>
+            <div class="fallback-skills">
+                <span class="fallback-skill">C#</span>
+                <span class="fallback-skill">C++</span>
+                <span class="fallback-skill">Python</span>
+                <span class="fallback-skill">SQL</span>
+                <span class="fallback-skill">Unity</span>
+                <span class="fallback-skill">Unreal Engine</span>
+                <span class="fallback-skill">.NET</span>
+                <span class="fallback-skill">Vulkan</span>
+                <span class="fallback-skill">Android</span>
+                <span class="fallback-skill">Git</span>
+                <span class="fallback-skill">Agile/Scrum</span>
+                <span class="fallback-skill">Jenkins</span>
+                <span class="fallback-skill">Docker</span>
+                <span class="fallback-skill">Test Automation</span>
+            </div>
+        </div>
+
+        <div class="fallback-section">
+            <h2 class="fallback-section-title">Contact</h2>
+            <ul class="fallback-contact-list">
+                <li class="fallback-contact-item">
+                    <span class="fallback-contact-label">Email</span>
+                    <a class="fallback-contact-link" href="mailto:andremaestas13@gmail.com">andremaestas13@gmail.com</a>
+                </li>
+                <li class="fallback-contact-item">
+                    <span class="fallback-contact-label">GitHub</span>
+                    <a class="fallback-contact-link" href="https://github.com/asat13" target="_blank" rel="noopener noreferrer">github.com/asat13</a>
+                </li>
+                <li class="fallback-contact-item">
+                    <span class="fallback-contact-label">LinkedIn</span>
+                    <a class="fallback-contact-link" href="https://www.linkedin.com/in/andremaestas/" target="_blank" rel="noopener noreferrer">linkedin.com/in/andremaestas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <noscript>
+        <style>
+            #app { display: none !important; }
+            #fallback { display: block !important; }
+        </style>
+    </noscript>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
@@ -57,7 +265,18 @@
         <a class="dismiss">&#x1F5D9;</a>
     </div>
 
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        if (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function') {
+            // WebAssembly supported — load Blazor
+            var s = document.createElement('script');
+            s.src = '_framework/blazor.webassembly.js';
+            document.body.appendChild(s);
+        } else {
+            // No WebAssembly — show static fallback
+            document.getElementById('app').style.display = 'none';
+            document.getElementById('fallback').style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
