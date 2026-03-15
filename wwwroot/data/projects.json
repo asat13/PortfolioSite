@@ -23,7 +23,7 @@
     "techs": ["Unity", "C#","VR", "360 Video", "Spatial Audio"],
     "platforms": ["Oculus Rift","Oculus Quest", "HTC Vive", "GearVR", "Google Cardboard"],
     "year": 2017,
-    "type": "Game",
+    "type": "Research",
     "contribution": "Lead Programmer",
     "projectCategory": "Personal"
   },
@@ -41,20 +41,20 @@
     "contribution": "Lead Programmer",
     "projectCategory": "Personal"
   },
-    {
-        "title": "Survival VR",
-        "description": "SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4.",
-        "longDescription": "SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4. The game features a variety of weapons and enemies, as well as a unique wave-based gameplay mechanic that keeps players on their toes. Players must use their wits and reflexes to survive against increasingly difficult waves of enemies, all while navigating the immersive VR environment.",
-        "imageSrc": "images/survivalvr.png",
-        "url": "",
-        "youtubeUrl": "https://www.youtube.com/embed/8P5tP37ybG4?si=2EYdN_RY-s9OhpMm",
-        "techs": ["Unreal Engine 4", "C++", "VR"],
-        "platforms": ["HTC Vive", "Oculus Rift"],
-        "year": 2017,
-        "type": "Game",
-        "contribution": "Lead Programmer",
+  {
+    "title": "Survival VR",
+    "description": "SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4.",
+    "longDescription": "SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4. The game features a variety of weapons and enemies, as well as a unique wave-based gameplay mechanic that keeps players on their toes. Players must use their wits and reflexes to survive against increasingly difficult waves of enemies, all while navigating the immersive VR environment.",
+    "imageSrc": "images/survivalvr.png",
+    "url": "",
+    "youtubeUrl": "https://www.youtube.com/embed/8P5tP37ybG4?si=2EYdN_RY-s9OhpMm",
+    "techs": ["Unreal Engine 4", "C++", "VR"],
+    "platforms": ["HTC Vive", "Oculus Rift"],
+    "year": 2017,
+    "type": "Game",
+    "contribution": "Lead Programmer",
     "projectCategory": "Personal"
-    },
+  },
   {
     "title": "Survival VR 2.0 : Robots Revenge",
     "description": "Survival VR 2 is a VR Action game for the HTC Vive and Oculus Rift developed using Unreal Engine 4.",
