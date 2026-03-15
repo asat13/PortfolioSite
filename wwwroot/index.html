@@ -208,7 +208,7 @@
                 This site requires a modern browser with WebAssembly support for the full experience.
             </div>
             <div>
-                <a class="fallback-resume-btn" href="resume.pdf" download="Andre_Maestas_Resume.pdf">Download Resume</a>
+                <a class="fallback-resume-btn" href="resume.pdf" target="_blank" rel="noopener noreferrer" download="Andre_Maestas_Resume.pdf">Download Resume</a>
             </div>
         </div>
 
@@ -262,8 +262,6 @@
         function showFallback() {
             document.getElementById('app').style.display = 'none';
             document.getElementById('fallback').style.display = 'block';
-            var errUi = document.getElementById('blazor-error-ui');
-            if (errUi) errUi.style.display = 'none';
         }
 
         function tryLoadBlazor() {

@@ -44,7 +44,7 @@ public class ProjectsFilterTests : TestContext
         });
 
         var cut = RenderComponent<Projects>();
-        Assert.Contains("Loading", cut.Find(".projects-empty").TextContent);
+        Assert.NotEmpty(cut.FindAll(".skeleton-card"));
     }
 
     [Fact]

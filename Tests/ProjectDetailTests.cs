@@ -53,7 +53,7 @@ public class ProjectDetailTests : TestContext
         });
 
         var cut = RenderComponent<ProjectDetail>(p => p.Add(x => x.TitleSlug, "Survival%20VR"));
-        Assert.Contains("Loading", cut.Find(".pd-state-msg").TextContent);
+        Assert.NotEmpty(cut.FindAll(".pd-skeleton-image"));
     }
 
     [Fact]
@@ -96,7 +96,7 @@ public class ProjectDetailTests : TestContext
         var cut = RenderComponent<ProjectDetail>(p =>
             p.Add(x => x.TitleSlug, "NonExistentProject"));
 
-        cut.WaitForAssertion(() => Assert.Contains("not found", cut.Find(".pd-state-msg").TextContent));
+        cut.WaitForAssertion(() => Assert.Contains("Not Found", cut.Find(".error-heading").TextContent));
     }
 
     [Fact]

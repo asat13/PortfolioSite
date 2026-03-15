@@ -40,7 +40,14 @@
         }
         else if (project == null)
         {
-            <p class="pd-state-msg">Project not found.</p>
+            <section class="error-page">
+                <h1 class="error-heading">Project Not Found</h1>
+                <p class="error-message">The project you're looking for doesn't exist or may have been removed.</p>
+                <div class="error-actions">
+                    <a class="btn-primary-cta" href="/projects">View Projects</a>
+                    <a class="error-home-link" href="/">Go Home</a>
+                </div>
+            </section>
         }
         else
         {
