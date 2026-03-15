@@ -15,8 +15,8 @@
   },
   {
     "title": "EcoRift",
-    "description": "The EcoRift presents a virtual reality experience of being in national parks and preserves of the American Soutwest.",
-    "longDescription": "The EcoRift presents a virtual reality experience of being in national parks and preserves of the American Southwest. EcoRift links together full 360-degree spherical visual and acoustic recordings, using the Oculus head tracking feature to synchronize an auditory and visual Point of View (POV) so the user can look around the environment as if truly present in it.  EcoRift can be used in exhibitions in park communities, at festivals and galleries and in other venues internationally. In the future individuals will be allowed to capture their own audio-visual experience in National Parks and upload it for sharing.  Along with the development of other rich media tools, EcoRift directs communities to issues of sustainability and environmental engagement. It raises questions of how digital technology and rich media environments can be used to reassess our value systems and develop a better understanding of the parks’ precious, yet fragile ecosystems. Given the ongoing need to increase ecological consciousness, the EcoRift is designed to provide new virtual immersive experiences to cultivate environmental stewardship and community agency. ",
+    "description": "The EcoRift presents a virtual reality experience of being in national parks and preserves of the American Southwest.",
+    "longDescription": "The EcoRift presents a virtual reality experience of being in national parks and preserves of the American Southwest. EcoRift links together full 360-degree spherical visual and acoustic recordings, using the Oculus head tracking feature to synchronize an auditory and visual Point of View (POV) so the user can look around the environment as if truly present in it.  EcoRift can be used in exhibitions in park communities, at festivals and galleries and in other venues internationally. In the future individuals will be allowed to capture their own audio-visual experience in National Parks and upload it for sharing.  Along with the development of other rich media tools, EcoRift directs communities to issues of sustainability and environmental engagement. It raises questions of how digital technology and rich media environments can be used to reassess our value systems and develop a better understanding of the parks’ precious, yet fragile ecosystems. Given the ongoing need to increase ecological consciousness, the EcoRift is designed to provide new virtual immersive experiences to cultivate environmental stewardship and community agency.",
     "imageSrc": "images/ecoriftLogo.webp",
     "url": "",
     "youtubeUrl": "",
@@ -29,8 +29,8 @@
   },
   {
     "title": "Portfolio Site",
-    "description": "This website built with Blazor WASM.",
-    "longDescription": "This website built with Blazor WebAssembly. The site features a clean and modern design, with a focus on showcasing my projects and skills. The site is fully responsive, ensuring that it looks great on all devices.",
+    "description": "This website was built with Blazor WASM.",
+    "longDescription": "This website was built with Blazor WebAssembly. The site features a clean and modern design, with a focus on showcasing my projects and skills. The site is fully responsive, ensuring that it looks great on all devices.",
     "imageSrc": "images/website.png",
     "url": "",
     "youtubeUrl": "",
@@ -44,7 +44,7 @@
     {
         "title": "Survival VR",
         "description": "SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4.",
-        "longDescription": " SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4. The game features a variety of weapons and enemies, as well as a unique wave-based gameplay mechanic that keeps players on their toes. Players must use their wits and reflexes to survive against increasingly difficult waves of enemies, all while navigating the immersive VR environment.",
+        "longDescription": "SurvivalVR is a wave-based VR survival shooter for the HTC Vive and Oculus Rift developed using Unreal Engine 4. The game features a variety of weapons and enemies, as well as a unique wave-based gameplay mechanic that keeps players on their toes. Players must use their wits and reflexes to survive against increasingly difficult waves of enemies, all while navigating the immersive VR environment.",
         "imageSrc": "images/survivalvr.png",
         "url": "",
         "youtubeUrl": "https://www.youtube.com/embed/8P5tP37ybG4?si=2EYdN_RY-s9OhpMm",
@@ -72,7 +72,7 @@
   {
     "title": "Concert VR",
     "description": "Concert VR is a virtual reality application that allows users to experience a live recorded concert experience.",
-    "longDescription": "Concert VR is a virtual reality application that allows users to experience a live recorded concert experience. Users head movements and gaze were then tracked in order to gather data for a research project. The application was developed using Unity and C#, featuring ambisonic audio and high quality 360 recordings, designed to be used with the Oculus Quest VR headset.",
+    "longDescription": "Concert VR is a virtual reality application that allows users to experience a live recorded concert experience. Users' head movements and gaze were then tracked in order to gather data for a research project. The application was developed using Unity and C#, featuring ambisonic audio and high quality 360 recordings, designed to be used with the Oculus Quest VR headset.",
     "imageSrc": "images/concertvr.png",
     "url": "",
     "youtubeUrl": "",
@@ -140,10 +140,10 @@
     "projectCategory": "Professional"
   },
   {
-    "title": "VR Enviroments",
-    "description": "VR Enviroments is an experimental system combining Oculus VR with accurate spatial tracking using an Optitrack Mocap System.",
-    "longDescription": "VR Enviroments is an experimental system combining Oculus VR with accurate spatial tracking using an Optitrack Mocap System. The system also utilizes a Leap Motion controller to encourage interaction and immersion.",
-    "imageSrc": "images/VREnviroments.webp",
+    "title": "VR Environments",
+    "description": "VR Environments is an experimental system combining Oculus VR with accurate spatial tracking using an Optitrack Mocap System.",
+    "longDescription": "VR Environments is an experimental system combining Oculus VR with accurate spatial tracking using an Optitrack Mocap System. The system also utilizes a Leap Motion controller to encourage interaction and immersion.",
+    "imageSrc": "images/VREnvironments.webp",
     "url": "",
     "youtubeUrl": "https://www.youtube.com/embed/5QEimNDXZ6s?si=RUfFEpjyykmZbfFH",
     "techs": ["Unity", "C#", "VR"],
