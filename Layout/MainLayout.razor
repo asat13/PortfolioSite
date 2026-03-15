@@ -6,14 +6,28 @@
     <div class="header-inner">
         <div class="logo-group">
             <a class="logo" href="/">Andre Maestas</a>
-            <img class="logo-img" href="/" src="images/Home/AMLogo.png" alt="Logo icon" aria-hidden="true" />
+            <img class="logo-img" src="images/Home/AMLogo.png" alt="Logo icon" aria-hidden="true" />
         </div>
         <NavMenu />
     </div>
 </header>
 
 <main class="site-main" id="main-content">
-    @Body
+    <ErrorBoundary @ref="errorBoundary">
+        <ChildContent>
+            @Body
+        </ChildContent>
+        <ErrorContent>
+            <section class="error-page">
+                <h1 class="error-heading">Something went wrong</h1>
+                <p class="error-message">An unexpected error occurred while loading this page.</p>
+                <div class="error-actions">
+                    <button class="btn-primary-cta" @onclick="Recover">Try Again</button>
+                    <a class="error-home-link" href="/">Go Home</a>
+                </div>
+            </section>
+        </ErrorContent>
+    </ErrorBoundary>
 </main>
 
 <footer class="site-footer">
@@ -26,8 +40,11 @@
     </div>
 </footer>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">&#x1F5D9;</a>
-</div>
+@code {
+    private ErrorBoundary? errorBoundary;
+
+    private void Recover()
+    {
+        errorBoundary?.Recover();
+    }
+}
