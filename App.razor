@@ -3,4 +3,17 @@
         <RouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)" />
         <FocusOnNavigate RouteData="routeData" Selector="h1" />
     </Found>
+    <NotFound>
+        <LayoutView Layout="typeof(Layout.MainLayout)">
+            <PageTitle>Page Not Found — Andre Maestas</PageTitle>
+            <section class="error-page">
+                <h1 class="error-heading">Page Not Found</h1>
+                <p class="error-message">The page you're looking for doesn't exist or has been moved.</p>
+                <div class="error-actions">
+                    <a class="btn-primary-cta" href="/">Go Home</a>
+                    <a class="error-home-link" href="/projects">View Projects</a>
+                </div>
+            </section>
+        </LayoutView>
+    </NotFound>
 </Router>
