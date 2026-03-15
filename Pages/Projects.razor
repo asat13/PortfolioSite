@@ -28,12 +28,12 @@
             {
                 <div class="filters" id="filters-body">
                     <div class="filter-group">
-                        <label class="filter-label">Search</label>
-                        <input class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
+                        <label class="filter-label" for="project-search">Search</label>
+                        <input id="project-search" name="project-search" class="filter-search" placeholder="Type project name..." value="@nameFilter" @oninput="OnNameInput" />
                     </div>
 
                     <div class="filter-group">
-                        <label class="filter-label">Technologies</label>
+                        <span class="filter-label">Technologies</span>
                         <div class="pill-list">
                             @foreach (var tech in AllTechs)
                             {
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="filter-group">
-                        <label class="filter-label">Type</label>
+                        <span class="filter-label">Type</span>
                         <div class="pill-list">
                             @foreach (var t in AllTypes)
                             {
