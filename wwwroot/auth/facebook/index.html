@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Returning to the app…</title>
+  <script>
+    (function () {
+      var qs = location.search ? location.search.slice(1) : "";
+      var hash = location.hash || "";
+      var target = "socialmanager://auth/facebook" + (qs ? "?" + qs : "") + hash;
+      location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>Returning to the app… If nothing happens, <a id="manual" href="socialmanager://auth/facebook">tap here to continue</a>.</p>
+  <script>
+    var manual = document.getElementById("manual");
+    manual.href = "socialmanager://auth/facebook" + location.search + location.hash;
+  </script>
+</body>
+</html>
